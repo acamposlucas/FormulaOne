@@ -3,15 +3,14 @@ using FormulaOne.DataService.Dtos.Requests;
 using FormulaOne.DataService.Dtos.Responses;
 using FormulaOne.DataService.Repositories.Interfaces;
 using FormulaOne.Entities.DbSet;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FormulaOne.Api.Controllers;
 
 public class AchievementsController : BaseController
 {
-    public AchievementsController(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
-    {
-    }
+    public AchievementsController(IUnitOfWork unitOfWork, IMapper mapper, IMediator mediator) : base(unitOfWork, mapper, mediator) { }
 
     [HttpGet]
     [Route("{driverId:guid}")]

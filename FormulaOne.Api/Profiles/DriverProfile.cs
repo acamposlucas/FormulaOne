@@ -26,6 +26,10 @@ public class DriverProfile : Profile
 
         CreateMap<UpdateDriverRequest, Driver>()
             .ForMember(
+                dest => dest.Id,
+                opt => opt.MapFrom(src => src.DriverId)
+            )
+            .ForMember(
                 dest => dest.UpdatedAt,
                 opt => opt.MapFrom(src => DateTime.UtcNow)
             );
