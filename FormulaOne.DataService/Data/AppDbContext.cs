@@ -8,6 +8,7 @@ public class AppDbContext : DbContext
     // Defining database entities
     public virtual DbSet<Driver> Drivers { get; set; }
     public virtual DbSet<Achievement> Achievements { get; set; }
+    public virtual DbSet<Circuit> Circuits { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
