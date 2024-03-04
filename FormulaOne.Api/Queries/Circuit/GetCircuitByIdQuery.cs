@@ -3,7 +3,7 @@ using MediatR;
 
 namespace FormulaOne.Api.Queries;
 
-public class GetCircuitByIdQuery : IRequest<GetCircuitResponse>
+public sealed record GetCircuitByIdQuery : IRequest<GetCircuitResponse>
 {
     public Guid CircuitId { get; }
 

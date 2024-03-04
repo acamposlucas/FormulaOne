@@ -3,7 +3,7 @@ using MediatR;
 
 namespace FormulaOne.Api.Queries;
 
-public class GetAllDriversQuery : IRequest<IEnumerable<GetDriverResponse>>
+public sealed record GetAllDriversQuery : IRequest<IEnumerable<GetDriverResponse>>
 {
 
 }
