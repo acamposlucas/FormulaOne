@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FormulaOne.Api.Queries;
-using FormulaOne.DataService.Dtos.Responses;
+using FormulaOne.DataService;
 using FormulaOne.DataService.Repositories.Interfaces;
 using MediatR;
 namespace FormulaOne.Api.Handlers;

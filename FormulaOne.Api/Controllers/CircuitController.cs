@@ -40,4 +40,20 @@ public class CircuitController : BaseController
 
         return CreatedAtAction(nameof(GetCircuitById), new { circuitId = result.Id }, result);
     }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateCircuit([FromBody] UpdateCircuitRequest circuit)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
+
+        var command = new UpdateCircuitInfoRequest(circuit);
+        var result = await _mediator.Send(command);
+
+        return result
+            ? NoContent()
+            : BadRequest();
+    }
 }

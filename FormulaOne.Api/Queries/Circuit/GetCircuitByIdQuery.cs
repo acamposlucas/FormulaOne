@@ -1,4 +1,4 @@
-﻿using FormulaOne.DataService.Dtos.Responses;
+﻿using FormulaOne.DataService;
 using MediatR;
 
 namespace FormulaOne.Api.Queries;

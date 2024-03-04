@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FormulaOne.Api.Commands.Circuit;
-using FormulaOne.DataService.Dtos.Responses;
+using FormulaOne.DataService;
 using FormulaOne.DataService.Repositories.Interfaces;
 using FormulaOne.Entities.DbSet;
 using MediatR;
