@@ -40,4 +40,27 @@ public class CircuitRepository : GenericRepository<Circuit>, ICircuitRepository
             throw;
         }
     }
+
+    public override async Task<bool> Delete(Guid id)
+    {
+        try
+        {
+            var result = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (result is null)
+            {
+                return false;
+            }
+
+            result.Status = 0;
+            result.UpdatedAt = DateTime.UtcNow;
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, message: $"{typeof(CircuitRepository)} Delete function error.");
+            throw;
+        }
+    }
 }

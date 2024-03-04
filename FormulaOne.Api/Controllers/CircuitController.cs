@@ -56,4 +56,21 @@ public class CircuitController : BaseController
             ? NoContent()
             : BadRequest();
     }
+
+    [HttpDelete]
+    [Route("{circuitId:guid}")]
+    public async Task<IActionResult> Delete(Guid circuitId)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
+
+        var command = new DeleteCircuitInfoRequest(circuitId);
+        var result = await _mediator.Send(command);
+
+        return result
+            ? NoContent()
+            : BadRequest();
+    }
 }
