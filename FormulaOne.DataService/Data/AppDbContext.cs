@@ -9,6 +9,7 @@ public class AppDbContext : DbContext
     public virtual DbSet<Driver> Drivers { get; set; }
     public virtual DbSet<Achievement> Achievements { get; set; }
     public virtual DbSet<Circuit> Circuits { get; set; }
+    public virtual DbSet<Team> Teams { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -25,6 +26,16 @@ public class AppDbContext : DbContext
                 .HasForeignKey(d => d.DriverId)
                 .OnDelete(DeleteBehavior.NoAction)
                 .HasConstraintName("FK_Achivements_Driver");
+        });
+
+        modelBuilder.Entity<Team>(entity =>
+        {
+            entity
+                .HasMany(t => t.Drivers)
+                .WithOne(d => d.Team)
+                .HasForeignKey(d => d.TeamId)
+                .OnDelete(DeleteBehavior.NoAction)
+                .HasConstraintName("FK_Team_Driver");
         });
     }
 }

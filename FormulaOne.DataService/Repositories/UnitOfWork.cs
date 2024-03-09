@@ -11,6 +11,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     public IDriverRepository Drivers { get; }
     public IAchievementsRepository Achievements { get; }
     public ICircuitRepository Circuits { get; }
+    public ITeamRepository Teams { get; }
 
     public UnitOfWork(AppDbContext context, ILoggerFactory loggerFactory)
     {
@@ -20,6 +21,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         Drivers = new DriverRepository(_context, logger);
         Achievements = new AchievementsRepository(_context, logger);
         Circuits = new CircuitRepository(_context, logger);
+        Teams = new TeamRepository(_context, logger);
     }
 
     public async Task<bool> CompleteAsync()

@@ -4,3 +4,6 @@ GET {{FormulaOne.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+GET {{FormulaOne.Api_HostAddress}}/drivers
+Accept: application/json
